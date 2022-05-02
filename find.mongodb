@@ -1,0 +1,52 @@
+// use("blog")
+
+// //db.users.drop()
+
+// // db.users.insertOne({id:1, username:"ssar"});
+// // db.users.insertOne({id:2, username:"cos"});
+// // db.users.insertOne({id:3, username:"love"});
+
+
+// 1. 특정 데이터 찾기
+// db.users.find({id:1})
+
+// 2. 특정 조건으로 찾기
+// db.users.find({id:{$gt:1}});  //gt= grater than (더 크다)
+// db.users.find({id:{$lt:3}}); //lt=less than(더 작다)
+// db.users.find({id:{$gte:1}}); // gte=크거나 같다.
+
+// 3. or , in
+// db.users.find({$or:[{id:1},{id:2}]});
+// db.users.find({id:{$in:[1,2]}});
+
+// 4. and
+// db.users.find({$and:[{id:1},{username:"ssar"}]});
+// db.users.find({id:1, username:"ssar"});
+// db.posts.find({"user.id":1});
+
+// 5. 객체 연결 연산 ""필요!!
+// db.posts.find({"user.id":1});
+
+// 6. data존재 여부(True = 1 False = 0)
+// db.posts.find({hello:{$exists:true}});
+
+// 7. negative  
+// ! not  (조건 부정)
+//  !=  ne(값을 비교)
+// db.users.find({id:{$ne:1}}); //ne = 1이 아닌 거 
+// db.users.find({id:{$not:{$ne:1}}});  //1이 아닌게 아닌거 
+
+// 8. 함수 만들기
+// let f = function (){
+//     let result = db.users.findOne({id:1});
+//     return result.username;
+// }
+
+// f()
+
+// 9. 결과 받아서 다시 find하기 
+// db.posts.find({"user.id":1})
+
+// let result = db.users.findOne({username:"ssar"});
+
+// db.posts.find({"user.id":result.id});

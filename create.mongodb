@@ -1,0 +1,35 @@
+use ("blog");
+
+//db.createCollection("posts")
+
+// const post ={
+//     id:1,
+//     title: "제목1",
+//     content: "내용 ㅎㅎ",
+//     user:{
+//         id:1,
+//         username: "ssar",
+//         email: "ssar@nate.com"
+//     }
+// }
+
+// db.posts.insertOne(post);
+
+db.posts.find();
+
+// const user = {
+//   "id": 2,
+//   "username": "ssar"
+// }
+
+// db.users.insertOne(user);
+
+// const userList=[
+// {id:5, username: "juwon"},
+// {id:6, username: "gaeddo"},
+// {id:7, password: "1234"}
+// ]
+
+// db.users.insertMany(userList)
+
+//db.users.find({id: 2});

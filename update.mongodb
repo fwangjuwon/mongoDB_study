@@ -1,0 +1,23 @@
+// use("blog");
+
+// db.users.updateOne({id:1},{$set:{username:"juwon"}});
+// db.users.updateOne({id:1},{$set:{email:"juwon@nate.com"}});
+// db.users.updateOne({id:4},{$set:{username:"juwon"}});
+// db.users.updateOne({id:4},{$set:{username:"mimi"}},{upsert:true});
+// db.users.updateOne({id:5},{$set:{username:"mimi"}},{upsert:true});
+// db.users.update({username:"mimi"},{$set:{username:"mama"}},{multi: true});
+// db.users.update({id:5},{$unset: {username:"mama"}})
+
+// db.users.find();
+
+
+// db.users.find().count();
+
+// 오름차순은 1, 내림차순은 -1
+// db.users.find().sort({id:-1}); //1 : (오름차순), -1: (내림차순)
+
+// 제한걸기
+// db.users.find().limit(2)
+
+// skip
+// db.users.find().skip(1);
