@@ -1,0 +1,26 @@
+use('cosdb');
+
+// for(let i=1; i<21;i++){
+// db.users.insertOne({"i": i, "username":"user"+i,"age":12});
+// }
+
+ //db.users.find({i:1});
+
+//집계함수: aggregate -> 파이프라인 -> 도큐먼트 스트림
+//match(일치)
+//db.users.aggregate([{$match:{i:1}}]);
+
+//projection(선출)
+//db.users.aggregate([{$match:{i:1}}, {$project:{i:1, username:1}}]);
+//db.users.aggregate([{$match:{i:1}}, {$project:{_id:0, i:1, username:1}}]);
+
+//sort(정렬)
+//db.users.aggregate([{$match:{age:12}},{$limit:5}, {$sort:{username:1}}, {$project:{_id:0, i:1, username:1}}]);
+
+//skip(건너뛰기)
+//db.users.aggregate([{$match:{age:12}},{$limit:5},{$skip:3}, {$sort:{username:1}}, {$project:{_id:0, i:1, username:1}}]);
+
+//limit(제한)
+db.users.aggregate([{$match:{age:12}},{$limit:2}, {$project:{_id:0, i:1, username:1}}]);
+
+

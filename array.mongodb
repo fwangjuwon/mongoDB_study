@@ -5,7 +5,7 @@ use("blog")
 // db.food.insertOne({_id:3, fruit: ["cherry", "banana", "apple"]});
 // db.food.insertOne({_id:4, fruit: ["cherry", "raspberry", "peach"]});
 
-//db.food.find({_id:1})
+// db.food.find();
 
 // db.food.find({fruit:[
 //     "apple",
@@ -13,9 +13,9 @@ use("blog")
 //     "peach"
 // ]})
 
-//포함하고 있는가??? 
-//db.food.find({fruit: {$all : ["apple"]}});
-//db.food.find({fruit: {$all : ["banana", "apple"]}});
+// //포함하고 있는가??? 
+// db.food.find({fruit: {$all : ["apple"]}});
+// db.food.find({fruit: {$all : ["banana", "apple"]}});
 
 //둘 중 하나라도 있는가??
 //db.food.find({fruit: {$in : ["banana", "apple"]}});
@@ -53,10 +53,10 @@ use("blog")
 
 
 db.post.find(
-    {
-        replys: {
-           $elemMatch:{id:4, userId:1}
-           }
-    },
-    {"replys.$": true}
+   {
+       replys: {
+          $elemMatch:{id:4, userId:1}
+          }
+   },
+   {"replys.$": true}
 )

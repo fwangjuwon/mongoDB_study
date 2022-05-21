@@ -1,0 +1,74 @@
+use("cosdb");
+
+// var users = [
+// {
+//         "_id" : ObjectId("60986fbe93843236060071d2"),
+//         "username" : "ssar",
+//         "password" : "1234",
+//         "phone" : "0102222"
+// },
+// {
+//         "_id" : ObjectId("6098700293843236060071d5"),
+//         "username" : "cos",
+//         "password" : "1234",
+//         "phone" : "0103333"
+// },
+// {
+//         "_id" : ObjectId("6098701b93843236060071d6"),
+//         "username" : "love",
+//         "password" : "1234",
+//         "phone" : "0103333"
+// }
+// ]
+
+// db.users.insertMany(users);
+
+
+
+// var boards = [
+// {
+//         "_id" : ObjectId("609870ea93843236060071db"),
+//         "title" : "t1",
+//         "content" : "c1",
+//         "user_id" : ObjectId("6098700293843236060071d5")
+// },
+// {
+//         "_id" : ObjectId("6098711393843236060071dc"),
+//         "title" : "t2",
+//         "content" : "c2",
+//         "user_id" : ObjectId("6098700293843236060071d5")
+// },
+// {
+//         "_id" : ObjectId("6098712e5bd0ba17bce175a4"),
+//         "title" : "t3",
+//         "content" : "c3",
+//         "user" : {
+//                 "username" : "love",
+//                 "password" : "1234",
+//                 "phone" : "0103333"
+//         }
+// },
+// {
+//         "_id" : ObjectId("6098726893843236060071de"),
+//         "title" : "t4",
+//         "content" : "c4",
+//         "user_id" : ObjectId("60986fbe93843236060071d2")
+// }
+// ]
+
+// db.boards.insertMany(boards);
+
+// db.users.drop();
+// db.users.find();
+//db.users.find({_id:ObjectId("6098701b93843236060071d6")})
+
+db.boards.aggregate([
+    {$lookup:{
+        "from":"users", //누구랑 조인할 건지
+        localField:"user_id", //누구랑 관계될건지
+        foreignField:"_id", //포린키
+        as:"user"//별칭
+    }},
+    {$unwind:"$user"},
+    {$project: {"user_id":0}}
+]);
